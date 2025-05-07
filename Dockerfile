@@ -25,7 +25,7 @@ ENV REDIS_PORT=6379
 COPY supervisord.conf.j2 /etc/supervisor/conf.d/supervisord.conf.j2
 
 # 生成最终的 supervisord 配置
-RUN apt install -y gettext && \
+RUN apt update && apt install -y gettext && \
     envsubst < /etc/supervisor/conf.d/supervisord.conf.j2 > /etc/supervisor/conf.d/supervisord.conf
 
 # 启动 Supervisor
