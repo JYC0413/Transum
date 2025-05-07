@@ -2,7 +2,7 @@
 command=python -m rq worker video_tasks --url ${REDIS_URL}
 directory=/transum
 process_name=%(program_name)s_%(process_num)02d
-numprocs=${WORKER_COUNT}
+numprocs=${MAX_CONNECTIONS}
 autostart=true
 autorestart=true
 stderr_logfile=/var/log/rq_worker_%(process_num)02d.err.log
